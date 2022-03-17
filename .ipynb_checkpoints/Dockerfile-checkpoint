@@ -34,12 +34,9 @@ LABEL com.amazonaws.sagemaker.capabilities.accept-bind-to-port=true
 COPY requirements.txt /requirements.txt
 RUN python -m pip install -r /requirements.txt && \
     rm /requirements.txt
-
-COPY sagemaker_sklearn_container-2.0-py3-none-any.whl /sagemaker_sklearn_container-2.0-py3-none-any.whl
-# https://github.com/googleapis/google-cloud-python/issues/6647
-RUN pip install --no-cache /sagemaker_sklearn_container-2.0-py3-none-any.whl && \
+    
+COPY setup.py /setup.py
+COPY test-requirements /test-requirements.txt
+RUN python setup.py bdist_wheel && \
+    pip install --no-cache /sagemaker_sklearn_container-2.0-py3-none-any.whl && \
     rm /sagemaker_sklearn_container-2.0-py3-none-any.whl
-
-# RUN rm -rf /opt/conda/lib/python3.7/site-packages/numpy-1.19.4.dist-info && \
-#     pip install --no-cache /sagemaker_sklearn_container-2.0-py3-none-any.whl && \
-#     rm /sagemaker_sklearn_container-2.0-py3-none-any.whl
