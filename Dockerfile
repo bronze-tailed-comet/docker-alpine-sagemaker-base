@@ -35,8 +35,8 @@ COPY requirements.txt /requirements.txt
 RUN python -m pip install -r /requirements.txt && \
     rm /requirements.txt
     
-COPY setup.py /setup.py && \
-     test-requirements.txt /test-requirements.txt
+COPY setup.py /setup.py
+COPY test-requirements.txt /test-requirements.txt
 RUN python setup.py bdist_wheel && \
     pip install --no-cache /sagemaker_sklearn_container-2.0-py3-none-any.whl && \
     rm /sagemaker_sklearn_container-2.0-py3-none-any.whl
