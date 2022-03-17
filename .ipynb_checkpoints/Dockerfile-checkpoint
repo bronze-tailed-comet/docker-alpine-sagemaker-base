@@ -28,6 +28,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PYTHONIOENCODING=UTF-8 LANG=C.U
 # Install Scikit-Learn; 0.20.0 supports both python 2.7+ and 3.4+
 RUN pip install --no-cache -I scikit-learn==${SKLEARN_VERSION} retrying
 
+
 LABEL com.amazonaws.sagemaker.capabilities.accept-bind-to-port=true
 
 COPY requirements.txt /requirements.txt
