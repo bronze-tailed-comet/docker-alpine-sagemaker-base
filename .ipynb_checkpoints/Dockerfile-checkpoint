@@ -9,6 +9,7 @@ ARG MLIO_VERSION=0.1
 ARG SKLEARN_VERSION=0.23.2
 
 RUN apk update && \
+    apk add gcc && \
     rm -rf /var/cache/apk/*
 
 ENV PATH=/opt/conda/bin:${PATH}
