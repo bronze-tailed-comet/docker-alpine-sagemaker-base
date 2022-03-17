@@ -29,16 +29,14 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PYTHONIOENCODING=UTF-8 LANG=C.U
 # Install Scikit-Learn; 0.20.0 supports both python 2.7+ and 3.4+
 RUN pip install --no-cache -I scikit-learn==${SKLEARN_VERSION} retrying
 
-LABEL com.amazonaws.sagemaker.capabilities.accept-bind-to-port=true
-
 COPY requirements.txt /requirements.txt
 RUN python -m pip install -r /requirements.txt && \
     rm /requirements.txt
     
-COPY setup.py /setup.py
-COPY test-requirements.txt /test-requirements.txt
-COPY requirements.txt /requirements.txt
-COPY README.rst /README.rst
-RUN python setup.py bdist_wheel && \
-    pip install --no-cache /sagemaker_sklearn_container-2.0-py3-none-any.whl && \
-    rm /sagemaker_sklearn_container-2.0-py3-none-any.whl
+# COPY setup.py /setup.py
+# COPY te-strequirements.txt /test-requirements.txt
+# COPY requirements.txt /requirements.txt
+# COPY README.rst /README.rst
+# RUN python setup.py bdist_wheel && \
+#     pip install --no-cache /sagemaker_sklearn_container-2.0-py3-none-any.whl && \
+#     rm /sagemaker_sklearn_container-2.0-py3-none-any.whl
