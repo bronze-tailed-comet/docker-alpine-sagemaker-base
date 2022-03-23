@@ -58,4 +58,4 @@ ___
 ### Documentation Communautaire
 
 * Format du fichier Dockerfile: https://docs.docker.com/engine/reference/builder/
-* Introduction à Docker: https://docs.docker.com/get-started/overview/
+* Introduction à Docker: https://docs.docker.com/get-started/overview/# docker-alpine-sagemaker-base
